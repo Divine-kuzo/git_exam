@@ -1,0 +1,12 @@
+#!/bin/bash
+echo "Enter the directory name:"
+read directory
+echo "Listing all .txt files in the directory:"
+txt_files=$(ls "$directory"/*.txt 2>/dev/null)
+if [ -z "$txt_files" ]; then
+    echo "$txt_files"
+else
+    echo "there is no .txt file"
+fi
+count=$(echo "$txt_files" | wc -l)
+echo "Total number of .txt files: $count"
